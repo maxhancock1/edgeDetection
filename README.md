@@ -37,11 +37,7 @@ Edge detection works by recognising boundaries so that an image can be segmented
 #### Image to identify given object
 
 
-![plot](Images/cartoon.png) 
-
-#### Output Image
-
-![plot](Images/output.png)
+![plot](Images/cartoon.png)
 
 
 The sobel filter works to show exactly where an object is on the image by using two 3x3 convolution kernels (Vertical, Horizontal). The kernels emphasise the change in intensity in their given directions. 
@@ -71,3 +67,7 @@ For each pixel in the image combining the gradient values from the x and y direc
 ### Edge Direction 
 
 This can be computed by: arctan(Gy/Gx)
+
+#### Output Image
+
+![plot](Images/output.png)
