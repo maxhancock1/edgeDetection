@@ -1,5 +1,6 @@
 import numpy as np
 from PIL import Image
+import cv2
 
 
 def sobel_edge_detection(image_path):
@@ -33,11 +34,39 @@ def sobel_edge_detection(image_path):
     # Normalise the magnitude values to fit the range [0, 255] as 255 is the max in 8-bit images
     magnitude = (magnitude / np.max(magnitude) * 255).astype(np.uint8)
 
-    # Return the edge image
-    return Image.fromarray(magnitude)
+    return magnitude
 
 
-# Test the function
-output_image = sobel_edge_detection("cartoon.png")
-output_image.show()
+def largest_object_box(image_array):
 
+    # Set the threshold for the image
+    _, threshold = cv2.threshold(image_array, 115, 255, cv2.THRESH_BINARY)
+    contours, _ = cv2.findContours(threshold, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
+    # Sort contours by area in descending order
+    sorted_contours = sorted(contours, key=cv2.contourArea, reverse=True)
+
+    # Check if there is at least 1 contour to check the image is actually displaying something
+    if len(sorted_contours) < 1:
+        raise ValueError("There are fewer than 1 object in the image.")
+
+    # Get the largest contour as this is likely to contain the box
+    largest_contour = sorted_contours[0]
+
+    # Get the bounding box
+    x, y, w, h = cv2.boundingRect(largest_contour)
+
+    # Draw the bounding box on a copy of the image and display it
+    boxed_image = image_array.copy()
+    cv2.rectangle(boxed_image, (x, y), (x + w, y + h), (255,), 2)
+    cv2.imshow('Largest Object Bounding Box', boxed_image)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+
+    return x, y, w, h
+
+
+edge_detected_image = sobel_edge_detection("cartoon.png")
+# Parse the image generated in the edge_detected_image function through to identify the box
+boundary_box = largest_object_box(edge_detected_image)
+print(f"Bounding Box: {boundary_box}")
