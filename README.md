@@ -70,4 +70,4 @@ This can be computed by: arctan(Gy/Gx)
 
 #### Output Image
 
-<img alt="plot" src="Images/output.png"/>
+![plot](./Images/output.png)
