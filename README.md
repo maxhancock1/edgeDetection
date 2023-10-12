@@ -41,7 +41,7 @@ Edge detection works by recognising boundaries so that an image can be segmented
 
 #### Output Image
 
-<img src="../../Desktop/output.png"/>
+![plot](/Users/maxhancock/Documents/output.png)
 
 The sobel filter works to show exactly where an object is on the image by using two 3x3 convolution kernels (Vertical, Horizontal). The kernels emphasise the change in intensity in their given directions. 
 Each kernel is multiplied by all different sections of the image, ultimately cancelling out in the output to give the coordinates of the desired object. 
