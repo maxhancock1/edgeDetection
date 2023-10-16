@@ -1,4 +1,4 @@
-# Edge Detectiin in Neuroprosthesis: Implementing the Sobel filter for image processing
+# Edge Detection in Neuroprosthesis: Implementing the Sobel filter for image processing
 
 ---
 
