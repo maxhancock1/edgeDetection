@@ -1,12 +1,12 @@
-# Edge Detect: Implementing the Sobel filter for image processing
+# Edge Detectiin in Neuroprosthesis: Implementing the Sobel filter for image processing
 
 ---
 
-Source code for an edge detection technique that emulates the Opencv library fundamentals. Edge detection is very important in image processing, especially in visual prosthesis, as it is important to avoid over-stimulation so that the brain can process the data. 
+Source code for an edge detection technique that emulates the Opencv library fundamentals. Edge detection is very important in image processing, especially in neuroprosthesis, as it is important to avoid over-stimulation so that the brain can process the data. 
 
 ### Edge Detection: 
 
-Edge detection works by recognising boundaries so that an image can be segmented and individual objects can be identified. This is important in visual prosthesis as there is a trade-off for importance, meaning that certain objects must be detected and others can be disregarded. 
+Edge detection works by recognising boundaries so that an image can be segmented and individual objects can be identified. This is important in neuroprosthesis as there is a trade-off for importance, meaning that certain objects must be detected and others can be disregarded. 
 
 ### The Sobel Filter
 
