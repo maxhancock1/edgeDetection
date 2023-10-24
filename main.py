@@ -66,7 +66,8 @@ def largest_object_box(image_array):
     return x, y, w, h
 
 
-edge_detected_image = sobel_edge_detection("cartoon.png")
+edge_detected_image = sobel_edge_detection("Images/img.png")
 # Parse the image generated in the edge_detected_image function through to identify the box
 boundary_box = largest_object_box(edge_detected_image)
 print(f"Bounding Box: {boundary_box}")
+
